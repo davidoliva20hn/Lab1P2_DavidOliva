@@ -23,4 +23,49 @@ String contraseña;
         this.contraseña = contraseña;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public Date getFechaN() {
+        return FechaN;
+    }
+
+    public void setFechaN(Date FechaN) {
+        this.FechaN = FechaN;
+    }
+
+    public String getCorreo() {
+        return Correo;
+    }
+
+    public void setCorreo(String Correo) {
+        this.Correo = Correo;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    @Override
+    public String toString() {
+        return "RegistroDeUsuarios{" + "nombre=" + nombre + ", apellido=" + apellido + ", FechaN=" + FechaN + ", Correo=" + Correo + ", contrase\u00f1a=" + contraseña + '}';
+    }
+
 }
