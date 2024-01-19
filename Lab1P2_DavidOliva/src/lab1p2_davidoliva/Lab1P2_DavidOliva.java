@@ -37,16 +37,31 @@ public class Lab1P2_DavidOliva {
                     String nombre = lea.nextLine();
                     System.out.println("Ingrese su apellido");
                     String apellido = lea.nextLine();
-                    System.out.println("Ingrese la fecha de nacimiento (dd/MM/yyy) :");  
-                    String fn = lea.next();
-                    SimpleDateFormat fecha = new SimpleDateFormat("dd/MM/yyy");
-                    Date FechaN = fecha.parse(fn);
-                    System.out.println("Ingrese el Correo Electrónico:");
-                    String Correo = lea.next();
+                    int FechaMenor;
+                    Date FechaN;
+                    do {
+                        System.out.println("Ingrese la fecha de nacimiento (dd/MM/yyy) :");
+                        String fn = lea.next();
+                        SimpleDateFormat fecha = new SimpleDateFormat("dd/MM/yyy");
+                        FechaN = fecha.parse(fn);
+                        FechaMenor = FechaN.getYear();
+                        FechaMenor = 2010 - FechaMenor;
+                    } while (FechaMenor <= 13);
+                    String Correo;
+                    do {
+                        System.out.println("Ingrese el Correo Electrónico:");
+                        Correo = lea.next();
+                        
+                    } while (true);
                     System.out.println("Ingrese contraseña:");
                     String contraseña = lea.next();
-                    RegistroDeUsuarios Registro=new RegistroDeUsuarios(nombre,apellido,FechaN,Correo,contraseña);
-                    usuario.add(Registro);   
+                    RegistroDeUsuarios Registro = new RegistroDeUsuarios(nombre, apellido, FechaN, Correo, contraseña);
+                    usuario.add(Registro);
+                }
+                case 2 -> {
+                    for (int i = 0; i < usuario.size(); i++) {
+                        System.out.println(usuario.get(i));
+                    }
                 }
             }
         } while (true);
