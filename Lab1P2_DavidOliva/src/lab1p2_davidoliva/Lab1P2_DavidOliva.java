@@ -38,6 +38,7 @@ public class Lab1P2_DavidOliva {
                     String nombre = lea.nextLine();
                     System.out.println("Ingrese su apellido");
                     String apellido = lea.nextLine();
+                    int i;
                     int año;
                     int mess;
                     int dia;
@@ -48,14 +49,30 @@ public class Lab1P2_DavidOliva {
                         String fn = lea.next();
                         SimpleDateFormat fecha = new SimpleDateFormat("dd/MM/yyy");
                         FechaN = fecha.parse(fn);
-                        año = n.getYear()-FechaN.getYear()-1;
+                        dia=FechaN.getDate();
+                        mess=FechaN.getMonth();
+                        if(FechaN.getDate()==n.getDate()&&FechaN.getMonth()==n.getMonth()){
+                            i=0;
+                        }else{
+                            i=1;
+                        }
+                        año = n.getYear()-FechaN.getYear()-i;
                         System.out.println(año);
                     } while (año <= 13);
                     String Correo;
-                    System.out.println("Ingrese el Correo Electrónico:");
-                    Correo = lea.next();
-                    System.out.println("Ingrese contraseña:");
-                    String contraseña = lea.next();
+                    boolean validador;
+                    do {
+                        System.out.println("Ingrese el Correo Electrónico:");
+                        Correo = lea.next();
+                        validador = ValidadorCorreo(Correo);
+                    } while (validador == false);
+                    String contraseña;
+                    boolean ValidadorContra;
+                    do {
+                        System.out.println("Ingrese contraseña:");
+                        contraseña = lea.next();
+                        ValidadorContra = ValidadorContraseña(contraseña);
+                    } while (ValidadorContra == false);
                     RegistroDeUsuarios Registro = new RegistroDeUsuarios(nombre, apellido, FechaN, Correo, contraseña);
                     usuario.add(Registro);
                 }
@@ -73,10 +90,17 @@ public class Lab1P2_DavidOliva {
         } while (opc!=4);
     }
 
-   /* public static void ValidadorCorreo(String email) {
+    public static boolean ValidadorCorreo(String email) {
         String regex = "^[a-zA-Z0-9._%&$+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
-    }*/
+    }
+    
+        public static boolean ValidadorContraseña(String Contraseña) {
+        String regex = "^[a-zA-Z0-9._%&$+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(Contraseña);
+        return matcher.matches();
+    }
 }
