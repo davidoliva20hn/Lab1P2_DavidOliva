@@ -7,7 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /**
  *
  * @author DAVIDANDRESOLIVAHERN
@@ -18,6 +19,7 @@ public class Lab1P2_DavidOliva {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws ParseException {
+        Pattern a=Pattern.compile("^?=()");
         Scanner lea = new Scanner(System.in);
         Scanner leer = new Scanner(System.in);
         ArrayList<RegistroDeUsuarios> usuario = new ArrayList<>();
@@ -35,7 +37,7 @@ public class Lab1P2_DavidOliva {
                     String nombre = lea.nextLine();
                     System.out.println("Ingrese su apellido");
                     String apellido = lea.nextLine();
-                    System.out.println("Ingrese la fecha de nacimiento:");
+                    System.out.println("Ingrese la fecha de nacimiento (dd/MM/yyy) :");  
                     String fn = lea.next();
                     SimpleDateFormat fecha = new SimpleDateFormat("dd/MM/yyy");
                     Date FechaN = fecha.parse(fn);
@@ -43,7 +45,8 @@ public class Lab1P2_DavidOliva {
                     String Correo = lea.next();
                     System.out.println("Ingrese contraseña:");
                     String contraseña = lea.next();
-                    
+                    RegistroDeUsuarios Registro=new RegistroDeUsuarios(nombre,apellido,FechaN,Correo,contraseña);
+                    usuario.add(Registro);   
                 }
             }
         } while (true);
