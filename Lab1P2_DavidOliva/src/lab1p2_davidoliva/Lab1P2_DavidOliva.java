@@ -45,9 +45,9 @@ public class Lab1P2_DavidOliva {
                     Date FechaN;
                     do {
                         Date n=new Date ();
-                        System.out.println("Ingrese la fecha de nacimiento (dd/MM/yyy) :");
+                        System.out.println("Ingrese la fecha de nacimiento (yyy/MM/dd):");
                         String fn = lea.next();
-                        SimpleDateFormat fecha = new SimpleDateFormat("dd/MM/yyy");
+                        SimpleDateFormat fecha = new SimpleDateFormat("yyy/MM/dd");
                         FechaN = fecha.parse(fn);
                         dia=FechaN.getDate();
                         mess=FechaN.getMonth();
@@ -72,7 +72,7 @@ public class Lab1P2_DavidOliva {
                         System.out.println("Ingrese contraseña:");
                         contraseña = lea.next();
                         ValidadorContra = ValidadorContraseña(contraseña);
-                    } while (ValidadorContra == false);
+                    } while (ValidadorContra == true);
                     RegistroDeUsuarios Registro = new RegistroDeUsuarios(nombre, apellido, FechaN, Correo, contraseña);
                     usuario.add(Registro);
                 }
@@ -83,7 +83,19 @@ public class Lab1P2_DavidOliva {
                 }
                 case 3 -> {
                     for (int i = 0; i < usuario.size(); i++) {
-                        System.out.println(usuario.get(i));
+                        if(usuario.get(i).Correo.toLowerCase().contains("gmail")){
+                            System.out.println(usuario.get(i));
+                        }else if(usuario.get(i).Correo.toLowerCase().contains("outlook")){
+                            System.out.println(usuario.get(i));
+                        }else if(usuario.get(i).Correo.toLowerCase().contains("yahoo")){
+                            System.out.println(usuario.get(i));
+                        }else if(usuario.get(i).Correo.toLowerCase().contains("iCloud")){
+                            System.out.println(usuario.get(i));
+                        }else if(usuario.get(i).Correo.toLowerCase().contains("frotonMail")){
+                            System.out.println(usuario.get(i));
+                        }else if(usuario.get(i).Correo.toLowerCase().contains("fastMail.")){
+                            System.out.println(usuario.get(i));
+                        }   
                     }
                 }
             }
