@@ -20,7 +20,6 @@ public class Lab1P2_DavidOliva {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws ParseException {
-        Pattern a = Pattern.compile("^?=()");
         Scanner lea = new Scanner(System.in);
         Scanner leer = new Scanner(System.in);
         ArrayList<RegistroDeUsuarios> usuario = new ArrayList<>();
@@ -72,7 +71,7 @@ public class Lab1P2_DavidOliva {
                         System.out.println("Ingrese contraseña:");
                         contraseña = lea.next();
                         ValidadorContra = ValidadorContraseña(contraseña);
-                    } while (ValidadorContra == true);
+                    } while (ValidadorContra == false);
                     RegistroDeUsuarios Registro = new RegistroDeUsuarios(nombre, apellido, FechaN, Correo, contraseña);
                     usuario.add(Registro);
                 }
@@ -110,7 +109,7 @@ public class Lab1P2_DavidOliva {
     }
 
     public static boolean ValidadorContraseña(String Contraseña) {
-        String regex = "^[a-zA-Z0-9._%&$+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!\"<>$%?]).{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(Contraseña);
         return matcher.matches();
