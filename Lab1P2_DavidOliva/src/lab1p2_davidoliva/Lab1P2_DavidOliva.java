@@ -61,14 +61,14 @@ public class Lab1P2_DavidOliva {
                     String Correo;
                     boolean validador;
                     do {
-                        System.out.println("Ingrese el Correo Electrónico:");
+                        System.out.println("Ingrese el Correo Electronico:");
                         Correo = lea.next();
                         validador = ValidadorCorreo(Correo);
                     } while (validador == false);
                     String contraseña;
                     boolean ValidadorContra;
                     do {
-                        System.out.println("Ingrese contraseña:");
+                        System.out.println("Ingrese Contraseña:");
                         contraseña = lea.next();
                         ValidadorContra = ValidadorContraseña(contraseña);
                     } while (ValidadorContra == false);
