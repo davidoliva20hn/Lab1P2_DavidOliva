@@ -28,7 +28,7 @@ public class RegistroDeUsuarios {
 
     @Override
     public String toString() {
-        return "Registro De Usuarios{" + "Nombre=" + nombre + ", Apellido=" + apellido + ", Fecha de Nacimiento= " + fecha.format(FechaN) + ", Correo=" + Correo + ", Contraseña=" + contraseña + '}';
+        return "Registro De Usuarios{" + "Nombre=" + nombre + ", Apellido=" + apellido + ", Fecha de Nacimiento= " + fecha.format(FechaN) + ", Correo=" + Correo + ", Contrasena=" + contraseña + '}';
     }
 
 }

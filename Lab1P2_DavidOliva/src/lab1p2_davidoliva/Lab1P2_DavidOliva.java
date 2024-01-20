@@ -39,25 +39,23 @@ public class Lab1P2_DavidOliva {
                     String apellido = lea.nextLine();
                     int i;
                     int año;
-                    int mess;
-                    int dia;
                     Date FechaN;
-                    do {
-                        Date n = new Date();
+                        Date fachaactual = new Date();
                         System.out.println("Ingrese la fecha de nacimiento (yyy/MM/dd):");
                         String fn = lea.next();
                         SimpleDateFormat fecha = new SimpleDateFormat("yyy/MM/dd");
                         FechaN = fecha.parse(fn);
-                        dia = FechaN.getDate();
-                        mess = FechaN.getMonth();
-                        if (FechaN.getDate() == n.getDate() && FechaN.getMonth() == n.getMonth()) {
+                        if (FechaN.getDate() == fachaactual.getDate() && FechaN.getMonth() == fachaactual.getMonth()) {
                             i = 0;
                         } else {
                             i = 1;
                         }
-                        año = n.getYear() - FechaN.getYear() - i;
-                        System.out.println(año);
-                    } while (año <= 13);
+                        año = fachaactual.getYear() - FechaN.getYear() - i;
+                        if (año<=13){
+                            System.out.println("Lo sentimos usted es menor de edad");
+                            System.out.println("");
+                            break;
+                        }
                     String Correo;
                     boolean validador;
                     do {
@@ -68,7 +66,7 @@ public class Lab1P2_DavidOliva {
                     String contraseña;
                     boolean ValidadorContra;
                     do {
-                        System.out.println("Ingrese Contraseña:");
+                        System.out.println("Ingrese Contrasena:");
                         contraseña = lea.next();
                         ValidadorContra = ValidadorContraseña(contraseña);
                     } while (ValidadorContra == false);
